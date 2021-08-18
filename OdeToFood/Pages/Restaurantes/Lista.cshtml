@@ -1,0 +1,20 @@
+﻿@page
+@model OdeToFood.Pages.Restaurantes.ListaModel
+@{
+}
+<h1>Restaurantes</h1>
+
+<table class="table">
+    @foreach(var r in Model.Restaurantes)
+            {
+                <tr>
+                    <td>@r.Nome</td>
+                    <td>@r.Localizacao</td>
+                    <td>@r.Cozinha</td>
+                </tr>
+            }
+</table>
+
+@*@Model permite acessar as propriedades do controller*@
+@*O @ permite que eu transcreva HTML em C#*@
+<div>@Model.Mensagem</div>
