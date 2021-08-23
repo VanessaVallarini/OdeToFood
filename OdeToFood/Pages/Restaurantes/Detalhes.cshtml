@@ -1,0 +1,23 @@
+﻿@page "{restauranteId:int}"
+@*assim, digo para o asp .net core que o próximo parâmetro da url será um int chamado restauranteId ex: Restaurantes/Detalhes/1*@
+@*Sem isso a minha rota ficaria: Restaurantes/Detalhes/restauranteId=1*@
+
+@model OdeToFood.Pages.Restaurantes.DetalhesModel
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h2>@Model.Restaurante.Nome</h2>
+<div>
+    Id:  @Model.Restaurante.Id
+</div>
+<div>
+    Nome:  @Model.Restaurante.Nome
+</div>
+<div>
+    Localizacao:  @Model.Restaurante.Localizacao
+</div>
+<div>
+    Tipo de Cozinha:  @Model.Restaurante.Cozinha
+</div>
+<a asp-page="./Lista" class="btn btn-outline-secondary">Retornar</a>

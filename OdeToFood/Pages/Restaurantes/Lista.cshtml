@@ -4,17 +4,39 @@
 }
 <h1>Restaurantes</h1>
 
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" placeholder="Nome Restaurante" asp-for="SearchTerm" />
+            <button class="btn btn-outline-secondary">
+                Pesquisar
+            </button>
+        </div>
+    </div>
+</form>
+
 <table class="table">
-    @foreach(var r in Model.Restaurantes)
+    @foreach(var restaurante in Model.Restaurantes)
             {
                 <tr>
-                    <td>@r.Nome</td>
-                    <td>@r.Localizacao</td>
-                    <td>@r.Cozinha</td>
+                    <td>@restaurante.Nome</td>
+                    <td>@restaurante.Localizacao</td>
+                    <td>@restaurante.Cozinha</td>
+                    <td>
+                        <a class="btn btn-info"
+                           asp-page="./Detalhes"
+                           asp-route-restauranteId="@restaurante.Id">
+                            Detalhes
+                        </a>
+                        <a class="btn btn-info"
+                           asp-page="./Editar"
+                           asp-route-restauranteId="@restaurante.Id">
+                            Editar
+                        </a>
+                    </td>
                 </tr>
             }
 </table>
 
 @*@Model permite acessar as propriedades do controller*@
 @*O @ permite que eu transcreva HTML em C#*@
-<div>@Model.Mensagem</div>

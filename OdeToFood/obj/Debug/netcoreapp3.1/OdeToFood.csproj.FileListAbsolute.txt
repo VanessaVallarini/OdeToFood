@@ -41,3 +41,6 @@ C:\Users\vanessa.a.ichikawa\source\repos\OdeToFood\OdeToFood\bin\Debug\netcoreap
 C:\Users\vanessa.a.ichikawa\source\repos\OdeToFood\OdeToFood\bin\Debug\netcoreapp3.1\OneToFood.Data.dll
 C:\Users\vanessa.a.ichikawa\source\repos\OdeToFood\OdeToFood\bin\Debug\netcoreapp3.1\OneToFood.Data.pdb
 C:\Users\vanessa.a.ichikawa\source\repos\OdeToFood\OdeToFood\bin\Debug\netcoreapp3.1\OdeToFood.Core.pdb
+C:\Users\vanessa.a.ichikawa\source\repos\OdeToFood\OdeToFood\obj\Debug\netcoreapp3.1\Razor\Pages\Restaurantes\Detalhes.cshtml.g.cs
+C:\Users\vanessa.a.ichikawa\source\repos\OdeToFood\OdeToFood\obj\Debug\netcoreapp3.1\Razor\Pages\Restaurantes\NotFound.cshtml.g.cs
+C:\Users\vanessa.a.ichikawa\source\repos\OdeToFood\OdeToFood\obj\Debug\netcoreapp3.1\Razor\Pages\Restaurantes\Editar.cshtml.g.cs

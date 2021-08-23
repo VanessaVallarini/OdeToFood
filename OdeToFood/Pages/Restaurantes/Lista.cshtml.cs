@@ -18,8 +18,9 @@ namespace OdeToFood.Pages.Restaurantes
         private readonly IRestauranteData restauranteData;
 
         //propriedade pública da classe Lista
-        public string Mensagem { get; set; }
         public IEnumerable<Restaurante> Restaurantes { get; set; }
+        [BindProperty(SupportsGet =true)] //ao invés de SearchTerm = searchTerm; uso essa propriedade como meio de entrada e saída, ou seja, ela recebe a solicitação http e retorna o valor determinado por mim via código
+        public string SearchTerm { get; set; }
 
         //Construtor appsettings
         public ListaModel(IConfiguration config, IRestauranteData restauranteData)
@@ -31,9 +32,8 @@ namespace OdeToFood.Pages.Restaurantes
         //Método responsável por responder as requisições HTTP GET
         public void OnGet()
         {
-            //Simulando o acesso aos dados
-            Mensagem = config["Message"];
-            Restaurantes = restauranteData.GetAll();
+            //SearchTerm = searchTerm;
+            Restaurantes = restauranteData.GetRestaurantByName(SearchTerm);
         }
     }
 }
