@@ -9,7 +9,7 @@
         <div class="input-group">
             <input type="search" class="form-control" placeholder="Nome Restaurante" asp-for="SearchTerm" />
             <button class="btn btn-outline-secondary">
-                Pesquisar
+                <i class="fas fa-search"></i>
             </button>
         </div>
     </div>
@@ -23,20 +23,29 @@
                     <td>@restaurante.Localizacao</td>
                     <td>@restaurante.Cozinha</td>
                     <td>
-                        <a class="btn btn-info"
+                        <a class="btn btn-lg"
                            asp-page="./Detalhes"
                            asp-route-restauranteId="@restaurante.Id">
-                            Detalhes
+                            <i class="fas fa-info-circle"></i>
                         </a>
-                        <a class="btn btn-info"
+                        <a class="btn btn-lg"
                            asp-page="./Editar"
                            asp-route-restauranteId="@restaurante.Id">
-                            Editar
+                            <i class="far fa-edit"></i>
+                        </a>
+                        <a class="btn btn-lg"
+                           asp-page="./Deletar"
+                           asp-route-restauranteId="@restaurante.Id">
+                            <i class="fas fa-trash-alt"></i>
                         </a>
                     </td>
                 </tr>
             }
 </table>
 
-@*@Model permite acessar as propriedades do controller*@
-@*O @ permite que eu transcreva HTML em C#*@
+<a asp-page=".\Editar" class="btn btn-primary">
+    <i class="fas fa-plus-circle"></i> Novo Restaurante
+</a>
+
+    @*@Model permite acessar as propriedades do controller*@
+    @*O @ permite que eu transcreva HTML em C#*@

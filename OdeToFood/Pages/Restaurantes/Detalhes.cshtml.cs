@@ -5,15 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using OdeToFood.Core;
-using OneToFood.Data;
+using OdeToFood.Data;
 
 namespace OdeToFood.Pages.Restaurantes
 {
     public class DetalhesModel : PageModel
     {
         private readonly IRestauranteData restauranteData;
-
         public Restaurante Restaurante { get; set; }
+        [TempData]
+        public string Message { get; set; }
 
         //injestão de dependência, assim como fizemos em lista
         public DetalhesModel(IRestauranteData restauranteData)

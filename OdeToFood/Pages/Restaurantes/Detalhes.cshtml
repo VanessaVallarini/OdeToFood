@@ -20,4 +20,10 @@
 <div>
     Tipo de Cozinha:  @Model.Restaurante.Cozinha
 </div>
-<a asp-page="./Lista" class="btn btn-outline-secondary">Retornar</a>
+@if (Model.Message != null)
+{
+    <div class="alert alert-info">@Model.Message</div>
+}
+<a asp-page="./Lista" class="btn btn-outline-secondary">
+    <i class="fas fa-undo"></i> Lista Restaurantes
+</a>

@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OneToFood.Data;
+using OdeToFood.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +26,20 @@ namespace OdeToFood
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //estamos dizendo que queremos usar uma única instância de restaurante para todos os acessos.
+            //agora sim temos uma conexão com o Banco de dados
+            //OdeToFoodDbContext: Classe do DBContext
+            //OdeToFoodDb: nome da conection string dada na appsettings.json
+            services.AddDbContextPool<OdeToFoodDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("OdeToFoodDb"));
+            });
+            
+            //AddSingleton: estamos dizendo que queremos usar uma única instância de restaurante para todos os acessos.
             //claro, isso só pode ser usado em desenvolvimento ou teste
-            services.AddSingleton<IRestauranteData, InMemoryRestauranteData>();
+            //services.AddSingleton<IRestauranteData, InMemoryRestauranteData>();
+            //AddScoped: estamos dizendo que queremos usar uma única instância de restaurante para um determinato contexto de solicitação Http.
+            services.AddScoped<IRestauranteData, SqlRestauranteData>();
+
             services.AddRazorPages();
         }
 
